@@ -4,4 +4,5 @@ moviepy
 tqdm
 yt-dlp
 psutil
-hf_xet 
+hf_xet
+humanize 

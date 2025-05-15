@@ -420,7 +420,8 @@ def main():
                       help="Kích thước model Whisper (tiny, base, small, medium, large, hoặc auto để tự động chọn)")
     parser.add_argument("--language", help="Mã ngôn ngữ (ví dụ: 'en', 'vi'). Nếu không chỉ định, sẽ tự động phát hiện")
     parser.add_argument("--resolution", default="720p", help="Độ phân giải video khi tải từ YouTube (ví dụ: '720p', '1080p')")
-    parser.add_argument("--keep-video", action="store_true", help="Giữ lại video YouTube sau khi xử lý")
+    parser.add_argument("--keep-video", action="store_true", default=True, help="Giữ lại video YouTube sau khi xử lý (mặc định)")
+    parser.add_argument("--no-keep-video", action="store_false", dest="keep_video", help="Xóa video YouTube sau khi xử lý")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto",
                       help="Thiết bị để xử lý (auto sẽ tự động phát hiện)")
     parser.add_argument("--compute-type", choices=["auto", "float32", "float16", "int8"], default="auto",

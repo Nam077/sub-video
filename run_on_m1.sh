@@ -23,14 +23,15 @@ if [[ $1 == *youtube.com* ]] || [[ $1 == *youtu.be* ]]; then
     echo "Phát hiện URL YouTube: $1"
     
     # Chọn mô hình (tối ưu cho tốc độ và chất lượng trên M1)
-    MODEL=${2:-"auto"}  # Sử dụng auto làm mặc định
+    MODEL=${2:-"large"}  # Sử dụng auto làm mặc định
     
     # Chạy với cài đặt tối ưu cho M1/M2
     python sub_video.py "$1" \
         --model $MODEL \
         --compute-type int8 \
         --formats "srt,ass" \
-        --karaoke
+        --karaoke \
+        --keep-video
 else
     # Nếu là tệp cục bộ
     echo "Phát hiện tệp cục bộ: $1"
@@ -43,8 +44,10 @@ else
         --model $MODEL \
         --compute-type int8 \
         --formats "srt,ass" \
-        --karaoke
+        --karaoke \
+        --keep-video
 fi
 
 echo -e "\nCác file phụ đề được lưu trong thư mục 'subtitles'"
+echo "Video đã tải xuống cũng được giữ lại trong thư mục 'subtitles'"
 echo "Để xem các tùy chọn chi tiết hơn, chạy: python sub_video.py --help" 
