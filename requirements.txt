@@ -1,0 +1,7 @@
+faster-whisper
+ffmpeg-python
+moviepy
+tqdm
+yt-dlp
+psutil
+hf_xet 
